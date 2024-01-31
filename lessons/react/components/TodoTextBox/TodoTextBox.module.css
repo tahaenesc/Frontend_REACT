@@ -1,0 +1,15 @@
+.todos {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.todos > textarea {
+  width: 300px;
+}
+
+.todos > button {
+  margin-top: 20px;
+  padding: 10px;
+  width: 100px;
+}

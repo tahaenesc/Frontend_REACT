@@ -1,0 +1,217 @@
+/*
+  class'ları . (nokta) ile yazarız
+  id'leri # (hash) karakteri ile yazarız.
+*/
+
+button {
+  margin: 10px; /* margin, elementlerin dışındaki boşluktur */
+  padding: 10px; /* padding, elementin içindeki boşluktur */
+}
+
+/* eğerki aynı css kurallarını başka element için uygulamak istiyorsak virgülle devam edip diğer selektörleri yazabilirsiniz */
+.image-wrapper, .image-parent {
+  width: 500px;
+  height: 400px;
+  border: 1px solid #000;
+}
+
+.image-parent {
+  /* margin / padding: top right bottom left; */
+  /* margin / padding: top right bottom; */
+  /* margin / padding: top right; */
+  /* margin / padding: 20px 0; */
+
+  margin-top: 20px;
+}
+
+.image-parent .image {
+  width: 100%;
+  height: 100%;
+
+  background-image: url(https://picsum.photos/300/150);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.box {
+  margin: 10px;
+
+  width: 128px;
+  height: 128px;
+
+  border: 1px solid #000;
+}
+
+.box-one {
+  position: relative;
+  background-color: aqua;
+}
+
+.box-two {
+  top: 10px;
+  left: 50px;
+  position: relative; /* relative pozisyonlama çevre elementleri hesaba katarak gerçekleştirir */
+  background-color: blueviolet;
+}
+
+.box-three {
+  top: 0px;
+  left: 0px;
+
+  position: absolute; /* absolute pozisyonlama, kendisini relative olan parent elemente göre pozisyonlar */
+  /* pozisyonlama yapılırken paddingler ve marginler hesaba katılır */
+  background-color: burlywood;
+}
+
+.box-four {
+  top: 0px;
+  left: 0px;
+
+  position: absolute;
+  background-color: chocolate;
+}
+
+.box-five {
+  top: 0;
+  right: 0;
+  position: fixed; /* her zaman web sayfanın geneline göre pozisyonlama yapacaktır ve elementleri sabit tutacaktır */
+  background-color: cornflowerblue;
+}
+
+.box-six {
+  position: sticky; /* görüş açısından çıkana kadar relative davranırken, görüş açısından çıkmaya başladığı anda sabitlenecektir */
+  background-color: crimson;
+}
+
+.flex-container {
+  padding: 10px;
+  height: 200px;
+  border: 1px solid red;
+
+  display: flex; /* elementi flex olarak ateşleme */
+  flex-direction: column; /* flex elementlerin yönünü belirtme */
+  gap: 20px; /* flex elementler arasında boşluk ataması */
+
+  /* flex-direction: row olduğunda justify-content x ekseninde (bir satırda) pozisyonlama yapar */
+  /* justify-content: space-between; /* elementler arasında aynı derecede boşluk */
+  /* justify-content: space-evenly; /* parent border ile elementler arasında ve elementlerin kendi arasında aynı derecede boşluk */
+  /* justify-content: space-around; /* parent elementi içerisinde bulunan element sayısına bölüp elementleri ortasına yerleştirir */
+
+  /* flex-direction: row olduğunda align-items y eksenin pozisyonlama yapar */
+  /* align-items: start; /* elementleri üstte pozisyonlama */
+  /* align-items: center; /* elementleri ortada pozisyonlama */
+  /* align-items: end; /* elementleri altta pozisyonlama */
+  /* align-items: stretch; /* üst border ile alt border arasında yayma */
+
+  /* flex-direction column olması durumunda justify-content y eksenin (bir sütun içerisinde) pozisyonlama yapacaktır */
+  justify-content: flex-start; /* elemanları yukarı border'a pozisyonlama */
+  justify-content: center; /* elemanları ortaya pozisyonlama */
+  justify-content: flex-end; /* elemanları aşağı border'a pozisyonlama */
+  justify-content: space-between; /* elementler arasında aynı derecede boşluk */
+  justify-content: space-evenly; /* parent border ile elementler arasında ve elementlerin kendi arasında aynı derecede boşluk */
+  justify-content: space-around; /* parent elementi içerisinde bulunan element sayısına bölüp elementleri ortasına yerleştirir */
+
+  /* flex-direction column olması durumunda x ekseninde (yani satır boyunca) pozisyonlama yapar */
+  align-items: start; /* elementleri solda pozisyonlama */
+  align-items: center; /* elementleri ortada pozisyonlama */
+  align-items: end; /* elementleri sağda pozisyonlama */
+  align-items: stretch; /* sol border ile sağ border arasında yayma (esnetmesi) */
+}
+
+.flex-container .item {
+  /*width: 24px;*/
+
+  border: 1px solid #000;
+}
+
+/* CSS Selectörler */
+
+/* Öncelik sıralaması: Id > Class > Html Tag */
+
+/* "*" selectoru: Sayfadaki bütün elementleri seçmenizi sağlıyor. */
+/* Genellikle CSS Resetleme konusunda kullanıldığını görürüz. Ama buna rağmen kullanılması tercih edilmiz. Çünkü tarayıcıya gereğinden fazla yük bindirdiği için */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Eğerki aynı element üzerinde birden fazla selektörü kullanarak seçmek istiyorsak, araya boşluk koymadan (boşluksuz) bu selektörleri yazabiliriz: */
+#calc-button.primary-button {
+  background-color: red;
+  color: #fff;
+}
+
+.primary-button.submit-button {
+  font-size: 20px;
+}
+
+.reset-button:not(.primary-button) {
+  cursor: crosshair;
+}
+
+/* > selektörü, seçmek istediğiniz elementlerin ne kadar derinde olduğunu da dikte edebileceğiniz bir selektördür. */
+.heading > a {
+  margin-top: 20px;
+  /* block elementleri margin ve padding değerlerini alabiliyorken,
+      inline elementler, margin ve padding almıyorlar.
+      bu durumu çözmek için ilgili elemente ara bir state (durum) verebiliriz: inline-block. Böylelikle element inline kalmaya devam ederken blok özelliği kazanacaktır. */
+  display: inline-block;
+
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.heading > .main-menu > a {
+  color: coral;
+}
+
+/* + selektörü, birbirini takip eden elementleri seçebilmek için kullanırız. Sadece ilk bulduğu elementi seçecektir. */
+/* İlgili elementler aynı parent içerisinde olması gerekiyor */
+.main-menu + a {
+  text-decoration: line-through; /* yazıya ortadan bir çizgi çeker */
+}
+
+/* ~ (tilde) selektörü */
+/* tilde selektörü de, + ile aynı işlevdedir. Tek farkı ilk elementler sınırlı değildir. Takip eden diğer elementleri de seçecektir. */
+/* İlgili elementler aynı parent içerisinde olması gerekiyor */
+.main-menu ~ a {
+  text-decoration: overline; /* yazıya üstten bir çizgi çeker */
+}
+
+/* first-child, last-child, nth-child selektörü, farklı pozisyonlarda bulunan elementleri seçebilmemizi sağlar */
+
+.drinks-list li:first-child {
+  background-color: darkkhaki;
+}
+
+.drinks-list li:last-child {
+  background-color: aqua;
+}
+
+.drinks-list li:nth-child(3) {
+  background-color: cornflowerblue;
+}
+
+/* attribute selektörü, sayfa içerisinde elementleri belli başlı attribute'lere sahip olmaası üzerinden seçebileceğiniz bir selektördür. */
+/* Eğer attribute ismini ^ karakteriyle bitirirseniz: string metodu olan startsWith()
+  $ karakteriyle bitirirseniz: string metodu olan endsWith()
+  * karakteriyle bitirirseniz: string metodu olan includes() */
+input[type="email"][maxlength="64"] {
+  border: 2px solid chartreuse;
+}
+
+.remove-button {
+  padding: 10px;
+}
+
+/* :hover, ilgili elementin üzerine gelindiğinde çalışacaktır */
+.remove-button:hover {
+  background-color: coral;
+}
+
+/* :active, ilgili elemente tıklanıldığında çalışacaktır */
+.remove-button:active {
+  background-color: gold;
+}

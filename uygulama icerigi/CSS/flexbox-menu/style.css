@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: rgb(72, 72, 149);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo span{
+    cursor: pointer;
+    scale: 1.2;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    gap: 16px;
+}
+
+nav ul li a{
+color: #fff;
+text-decoration: none;
+}
+
+/* Main Styles */
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.food-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+.food-card{
+    background-color: rgba(214, 160, 212, 0.371);
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.food-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.food-title{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.food-card .price{
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: rgb(72, 72, 149);
+}
+
+.food-card p {
+    color: #333;
+}

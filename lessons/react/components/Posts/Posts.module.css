@@ -1,0 +1,16 @@
+.joke {
+  margin-top: 20px;
+  padding: 10px;
+
+  border: 2px dashed #000;
+}
+
+.joke > div > span:first-child {
+  margin-right: 10px;
+  width: 130px;
+  display: inline-block;
+
+  font-size: 20px;
+  text-decoration: underline;
+  text-align: right;
+}
